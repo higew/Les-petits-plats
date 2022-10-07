@@ -36,9 +36,6 @@ const utensilsMenu = document.querySelector("#utensils-menu-items");
 Recipe.addHtmlSecondaryMenuElements(utensilsMenu, tabOfUtensils, "utensil");
 
 const tagsContainer = document.querySelector(".tags-container");
-//Menu ingrédients
 Recipe.addHtmlOfTags(tagsContainer, tabOfIngredients, "ingredient-tag");
-//Menu appareils
 Recipe.addHtmlOfTags(tagsContainer, tabOfMachines, "machine-tag");
-//Menu appareils
 Recipe.addHtmlOfTags(tagsContainer, tabOfUtensils, "utensil-tag");
