@@ -55,6 +55,7 @@ header {
 .tag button {
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .tag button i {

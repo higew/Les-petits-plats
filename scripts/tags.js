@@ -4,6 +4,17 @@ const ustensilsLi = document.querySelectorAll('.ustensil a');
 const ingredientsTag = document.querySelectorAll('.ingredient-tag');
 const machinesTag = document.querySelectorAll('.machine-tag');
 const ustensilsTag = document.querySelectorAll('.ustensil-tag');
+const deleteTag = document.querySelectorAll('.delete-tag-btn');
+
+//Delete selected tag
+for(let i = 0; i <= deleteTag.length - 1; i++) {
+    deleteTag[i].addEventListener("click", (event) => {
+        event.preventDefault();
+        let parentDiv = deleteTag[i].closest('div');
+        parentDiv.classList.remove('display-block');
+        parentDiv.classList.add('display-none');
+    })
+}
 
 
 //Tag display in container for ingredients
@@ -48,7 +59,7 @@ for(let i = 0; i <= machinesLi.length - 1; i++) {
     });
 }
 
-//Tag display in container for machines
+//Tag display in container for ustensils
 for(let i = 0; i <= ustensilsLi.length - 1; i++) {
     ustensilsLi[i].addEventListener("click", (event) => {
         event.preventDefault();
