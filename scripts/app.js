@@ -1,6 +1,6 @@
 import { recipes } from "../data/recipes.js";
 
-const mainSearchInput = document.querySelector("#input_recherche");
+const mainSearchInput = document.querySelector("#input-search");
 
 mainSearchInput.addEventListener("input", searchSortRecipes);
 let inputUser = undefined;

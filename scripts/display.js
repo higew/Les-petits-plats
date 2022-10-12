@@ -33,9 +33,9 @@ const machinesMenu = document.querySelector("#machines-menu-items");
 Recipe.addHtmlSecondaryMenuElements(machinesMenu, tabOfMachines, "machine");
 
 const utensilsMenu = document.querySelector("#utensils-menu-items");
-Recipe.addHtmlSecondaryMenuElements(utensilsMenu, tabOfUtensils, "utensil");
+Recipe.addHtmlSecondaryMenuElements(utensilsMenu, tabOfUtensils, "ustensil");
 
 const tagsContainer = document.querySelector(".tags-container");
 Recipe.addHtmlOfTags(tagsContainer, tabOfIngredients, "ingredient-tag");
 Recipe.addHtmlOfTags(tagsContainer, tabOfMachines, "machine-tag");
-Recipe.addHtmlOfTags(tagsContainer, tabOfUtensils, "utensil-tag");
+Recipe.addHtmlOfTags(tagsContainer, tabOfUtensils, "ustensil-tag");

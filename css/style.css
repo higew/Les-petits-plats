@@ -20,6 +20,7 @@ header {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 .tags-container .tag {
@@ -41,8 +42,8 @@ header {
   background-color: #68d9a4;
 }
 
-.utensil-tag,
-.utensil-tag button {
+.ustensil-tag,
+.ustensil-tag button {
   background-color: #ed6454;
 }
 
@@ -182,7 +183,6 @@ header {
   flex-wrap: wrap;
   flex-direction: row;
   flex-grow: 1;
-  margin-top: 50px;
   gap: 20px;
 }
 .recipe-card {
