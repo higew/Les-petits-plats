@@ -9,20 +9,35 @@ btnIngredient.addEventListener("click", displayAreaIngredient);
 btnMachine.addEventListener("click", displayAreaMachine);
 btnUstensil.addEventListener("click", displayAreaustensil);
 
+// function displayAreaIngredient() {
+//     if (areaIngredient.classList.contains('display-none')) {
+//         if (areaMachine.classList.contains('display-flex') || areaUstensil.classList.contains('display-flex')) {
+//             areaMachine.classList.remove("display-flex");
+//             areaMachine.classList.add("class", "display-none");
+//             areaUstensil.classList.remove("display-flex");
+//             areaUstensil.classList.add("class", "display-none");
+//             areaIngredient.classList.remove("display-none");
+//             areaIngredient.classList.add("class", "display-flex");
+//         }
+//         else {
+//             areaIngredient.classList.remove("display-none");
+//             areaIngredient.classList.add("class", "display-flex");
+//         }
+//     }
+//     else {
+//         areaIngredient.classList.remove("display-flex");
+//         areaIngredient.classList.add("class", "display-none");
+//     }
+// }
+
 function displayAreaIngredient() {
     if (areaIngredient.classList.contains('display-none')) {
-        if (areaMachine.classList.contains('display-flex') || areaUstensil.classList.contains('display-flex')) {
-            areaMachine.classList.remove("display-flex");
-            areaMachine.classList.add("class", "display-none");
-            areaUstensil.classList.remove("display-flex");
-            areaUstensil.classList.add("class", "display-none");
-            areaIngredient.classList.remove("display-none");
-            areaIngredient.classList.add("class", "display-flex");
-        }
-        else {
-            areaIngredient.classList.remove("display-none");
-            areaIngredient.classList.add("class", "display-flex");
-        }
+        areaIngredient.classList.remove("display-none");
+        areaMachine.classList.remove("display-flex");
+        areaUstensil.classList.remove("display-flex");
+        areaIngredient.classList.add("class", "display-flex");
+        areaMachine.classList.add("class", "display-none");
+        areaUstensil.classList.add("class", "display-none");
     }
     else {
         areaIngredient.classList.remove("display-flex");
@@ -62,8 +77,8 @@ function displayAreaustensil() {
             areaUstensil.classList.add("class", "display-flex");
         }
         else {
-            areaMachine.classList.remove("display-none");
-            areaMachine.classList.add("class", "display-flex");
+            areaUstensil.classList.remove("display-none");
+            areaUstensil.classList.add("class", "display-flex");
         }
     }
     else {

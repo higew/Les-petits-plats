@@ -127,7 +127,7 @@ header {
 }
 
 .grp_ingredient {
-  width: 500px;
+  width: 700px;
   top: 63px;
   padding: 30px;
   background-color: #0d6efd;
@@ -139,12 +139,17 @@ header {
   gap: 20px;
   position: absolute;
   z-index: 1;
+  height: 400px;
+  overflow: auto;
+}
+.grp_ingredient li {
+  flex: 0 0 30%;
 }
 .grp_ingredient a {
   color: #fff;
 }
 .grp_appareil {
-  width: 500px;
+  width: 700px;
   top: 63px;
   padding: 30px;
   background-color: #00dca9;
@@ -156,12 +161,17 @@ header {
   gap: 20px;
   position: absolute;
   z-index: 1;
+  height: 400px;
+  overflow: auto;
+}
+.grp_appareil li {
+  flex: 0 0 30%;
 }
 .grp_appareil a {
   color: #fff;
 }
 .grp_ustensil {
-  width: 500px;
+  width: 700px;
   top: 63px;
   padding: 30px;
   background-color:#ed6454;
@@ -174,6 +184,11 @@ header {
   gap: 20px;
   position: absolute;
   z-index: 1;
+  height: 400px;
+  overflow: auto;
+}
+.grp_ustensil li {
+  flex: 0 0 30%;
 }
 .grp_ustensil a {
   color: #fff;
