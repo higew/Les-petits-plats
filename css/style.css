@@ -139,7 +139,7 @@ header {
   gap: 20px;
   position: absolute;
   z-index: 1;
-  height: 400px;
+  max-height: 400px;
   overflow: auto;
 }
 .grp_ingredient li {
@@ -161,7 +161,7 @@ header {
   gap: 20px;
   position: absolute;
   z-index: 1;
-  height: 400px;
+  max-height: 400px;
   overflow: auto;
 }
 .grp_appareil li {
@@ -184,7 +184,7 @@ header {
   gap: 20px;
   position: absolute;
   z-index: 1;
-  height: 400px;
+  max-height: 400px;
   overflow: auto;
 }
 .grp_ustensil li {

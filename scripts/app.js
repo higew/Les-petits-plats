@@ -20,10 +20,10 @@ let ustensilsItems = document.querySelectorAll(".ustensil");
 let ingredientsItemsLinks = document.querySelectorAll(".ingredient a");
 let machinesItemsLinks = document.querySelectorAll(".machine a");
 let ustensilsItemsLinks = document.querySelectorAll(".ustensil a");
+let globalTag = document.querySelectorAll(".tag");
 
-function displayGoodRecipe(valueInput, recipes) {
+export function displayGoodRecipe(valueInput, recipes) {
   let tabResults = [];
-  //let tabIngredients = [];
 
   if (valueInput !== undefined && valueInput.length > 2) {
     for (let i = 0; i < recipes.length; i++) {
@@ -41,8 +41,6 @@ function displayGoodRecipe(valueInput, recipes) {
         for (let j = 0; j < recipes[i].ingredients.length; j++) {
           if (recipes[i].ingredients[j].ingredient.toLowerCase().includes(valueInput)) {
             tabResults.push(i);
-            //tabIngredients.push(j);
-            //console.log(tabIngredients[j]);
             ifValueFind = true;
           }
         }
@@ -61,19 +59,88 @@ function displayGoodRecipe(valueInput, recipes) {
     for (let i = 0; i < tabResults.length; i++) {
       articlesRecipes[tabResults[i]].classList.replace("display-none","display-block");
     }
+
     refreshGoodItems(tabResults);
+    console.log(tabIngredients);
+    console.log(tabMachines);
+    console.log(tabUstensils);
   }
+  // else if (valueInput === ""){
+  //   let articlesRecipes = document.querySelectorAll(".recipe-card article");
+  //   for (let i = 0; i < recipes.length; i++) {
+  //         tabResults.push(i);
+  //   }
+  //   for (let i = 0; i < articlesRecipes.length; i++) {
+  //     articlesRecipes[i].classList.remove("display-block");
+  //     articlesRecipes[i].classList.add("class", "display-none");
+  //   }
+
+  //   //Then displaying the searched ones
+  //   for (let i = 0; i < tabResults.length; i++) {
+  //     articlesRecipes[tabResults[i]].classList.replace("display-none","display-block");
+  //   }
+  // }
   else {
     for (let i = 0; i < recipes.length; i++) {
       tabResults.push(i);
+      //console.log(tabResults);
     }
     for (let i = 0; i < document.querySelectorAll(".recipe-card article").length; i++) {
-      document.querySelectorAll(".recipe-card article")[i].classList.remove("display-none");
-      document.querySelectorAll(".recipe-card article")[i].classList.add("display-block");
+      document.querySelectorAll(".recipe-card article")[i].classList.replace("display-none", "display-block");
+    }
+    for(let i = 0; i < document.querySelectorAll(".ingredient").length; i++) {
+      document.querySelectorAll(".ingredient")[i].classList.replace("display-none", "display-block");
+    }
+    for(let i = 0; i < document.querySelectorAll(".machine").length; i++) {
+      document.querySelectorAll(".machine")[i].classList.replace("display-none", "display-block");
+    }
+    for(let i = 0; i < document.querySelectorAll(".ustensil").length; i++) {
+      document.querySelectorAll(".ustensil")[i].classList.replace("display-none", "display-block");
     }
   }
 
+  filterWithTagsOn(tabResults);
   return tabResults;
+}
+
+let tabIngredients = new Set();
+let tabMachines = new Set();
+let tabUstensils = new Set();
+
+export function getSelectedTags() {
+  //Getting selected Tags and add them to the right tab
+  for (let i = 0; i < globalTag.length; i++) {
+    if (globalTag[i].classList.contains("display-block")) {
+      if (globalTag[i].classList.contains("ingredient-tag")) {
+        tabIngredients.add(globalTag[i].firstElementChild.textContent);
+      }
+      else if (globalTag[i].classList.contains("machine-tag")) {
+        tabMachines.add(globalTag[i].firstElementChild.textContent);
+      }
+      else if (globalTag[i].classList.contains("ustensil-tag")){
+        tabUstensils.add(globalTag[i].firstElementChild.textContent);
+      }
+    }
+  }
+  displayGoodRecipe(inputUser, recipes);
+}
+
+export function deleteSelectedTag() {
+  //Getting all the selected tags and removing the one who got clicked on
+  for (let i = 0; i < globalTag.length; i++) {
+    if (globalTag[i].classList.contains("display-block")) {
+      if (globalTag[i].classList.contains("ingredient-tag")) {
+        tabIngredients.delete(globalTag[i].firstElementChild.textContent);
+      }
+      else if (globalTag[i].classList.contains("machine-tag")) {
+        tabMachines.delete(globalTag[i].firstElementChild.textContent);
+      }
+      else if (globalTag[i].classList.contains("ustensil-tag")) {
+        tabUstensils.delete(globalTag[i].firstElementChild.textContent);
+      }
+    }
+  }
+  displayGoodRecipe(inputUser, recipes);
 }
 
 function refreshGoodItems(indexOfGoodRecipes) {
@@ -152,4 +219,66 @@ function refreshGoodItems(indexOfGoodRecipes) {
       }
     }
   }
+}
+
+function filterForItems(activeRecipes, typeOfFilter, selectedTypeOfItem) {
+  if (selectedTypeOfItem.size !== 0) {
+    let badRecipes = [];
+    
+    //Checking on every recipe
+    for(let i = 0; i < activeRecipes.length; i++) {
+      const recipe = recipes[activeRecipes[i]];
+      let control = true;
+      let activeFilter = "";
+
+      //Checking every type of tags selected
+      for(let y = 0; y < Array.from(selectedTypeOfItem).length; y++) {
+        const selectedActiveItem = Array.from(selectedTypeOfItem)[y];
+
+        if (typeOfFilter === "ingredient") {
+          activeFilter = recipe.ingredients.reduce((accumulator, currentValue) => {
+              return accumulator + currentValue.ingredient;
+          },"");
+        } 
+        else if (typeOfFilter === "machine") {
+          activeFilter += recipe.appliance;
+        } 
+        else if (typeOfFilter === "ustensil") {
+          for(let y = 0; y < recipe.ustensils.length; y++) {
+            activeFilter += recipe.ustensils[y];
+          }
+        }
+
+        if (!activeFilter.includes(selectedActiveItem)) {
+          //If the tag isn't included then the control is set to false
+          control = false;
+        }
+        activeFilter = "";
+      };
+      //Recipe to hide on the dropdown menu
+      if (control === false) {
+        document.getElementById(recipe.id).classList.remove("display-block");
+        document.getElementById(recipe.id).classList.add("display-none");
+        badRecipes.push(recipe.id - 1);
+      }
+    };
+
+    //Delete wrong recipe from the tab for the dropdown menu
+    for (let i = 0; i < activeRecipes.length; i++) {
+      for (let z = 0; z < badRecipes.length; z++) {
+        if (activeRecipes[i] === badRecipes[z]) {
+          activeRecipes.splice(i, 1);
+        }
+      }
+    }
+  }
+  return activeRecipes;
+}
+
+function filterWithTagsOn(activeRecipes) {
+  activeRecipes = filterForItems(activeRecipes, "ingredient", tabIngredients);
+  activeRecipes = filterForItems(activeRecipes, "machine", tabMachines);
+  activeRecipes = filterForItems(activeRecipes, "ustensil", tabUstensils);
+
+  refreshGoodItems(activeRecipes);
 }
