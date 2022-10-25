@@ -99,8 +99,73 @@ export function displayGoodRecipe(valueInput, recipes) {
     }
   }
 
+  if (tabResults.length === 0) {
+    document.querySelector("#messageRecipeNotFound").classList.replace("display-none", "display-flex");
+  }
+  else {
+    document.querySelector("#messageRecipeNotFound").classList.replace("display-flex", "display-none");
+  }
+
   filterWithTagsOn(tabResults);
   return tabResults;
+}
+
+const searchIngredient = document.querySelector("#inpt_ingr");
+const searchMachine = document.querySelector("#inpt_appr");
+const searchUstensil = document.querySelector("#inpt_ustensil");
+searchIngredient.addEventListener("input", ingredientMenuSearch);
+searchMachine.addEventListener("input", machineMenuSearch);
+searchUstensil.addEventListener("input", ustensilMenuSearch);
+
+function ingredientMenuSearch(value) {
+  //Input search for the ingredient
+  let inputUser = value.target.value.trim().toLowerCase();
+
+  //Hiding every ingredients
+  for (let i = 0; i < ingredientsItems.length; i++) {
+    ingredientsItems[i].classList.replace("display-block", "display-none");
+  }
+
+  //Displaying only ingredients who match the input search
+  for (let i = 0; i < ingredientsItems.length; i++) {
+    if (ingredientsItems[i].firstChild.textContent.toLowerCase().includes(inputUser)) {
+      ingredientsItems[i].classList.replace("display-none", "display-block");
+    }
+  }
+}
+
+function machineMenuSearch(value) {
+  //Input search for the machine
+  let inputUser = value.target.value.trim().toLowerCase();
+
+  //Hiding every machines
+  for (let i = 0; i < machinesItems.length; i++) {
+    machinesItems[i].classList.replace("display-block", "display-none");
+  }
+
+  //Displaying only machines who match the input search
+  for (let i = 0; i < machinesItems.length; i++) {
+    if (machinesItems[i].firstChild.textContent.toLowerCase().includes(inputUser)) {
+      machinesItems[i].classList.replace("display-none", "display-block");
+    }
+  }
+}
+
+function ustensilMenuSearch(value) {
+  //Input search for the ustensil
+  let inputUser = value.target.value.trim().toLowerCase();
+
+  //Hiding every ustensils
+  for (let i = 0; i < ustensilsItems.length; i++) {
+    ustensilsItems[i].classList.replace("display-block", "display-none");
+  }
+
+  //Displaying only ustensils who match the input search
+  for (let i = 0; i < ustensilsItems.length; i++) {
+    if (ustensilsItems[i].firstChild.textContent.toLowerCase().includes(inputUser)) {
+      ustensilsItems[i].classList.replace("display-none", "display-block");
+    }
+  }
 }
 
 let tabIngredients = new Set();
@@ -270,6 +335,12 @@ function filterForItems(activeRecipes, typeOfFilter, selectedTypeOfItem) {
           activeRecipes.splice(i, 1);
         }
       }
+    }
+    if (activeRecipes.length === 0) {
+      document.querySelector("#messageRecipeNotFound").classList.replace("display-none", "display-flex");
+    }
+    else {
+      document.querySelector("#messageRecipeNotFound").classList.replace("display-flex", "display-none");
     }
   }
   return activeRecipes;

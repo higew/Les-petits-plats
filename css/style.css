@@ -126,6 +126,18 @@ header {
     color: #fff;
 }
 
+#inpt_ingr::placeholder {
+  color: rgba(255, 255, 255, 0.726);
+}
+
+#inpt_appr::placeholder {
+  color: rgba(255, 255, 255, 0.726);
+}
+#inpt_ustensil::placeholder {
+  color: rgba(255, 255, 255, 0.726);
+}
+
+
 .grp_ingredient {
   width: 700px;
   top: 63px;
