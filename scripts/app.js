@@ -61,9 +61,6 @@ export function displayGoodRecipe(valueInput, recipes) {
     })
 
     refreshGoodItems(tabResults);
-    console.log(tabIngredients);
-    console.log(tabMachines);
-    console.log(tabUstensils);
   }
 
   else {
