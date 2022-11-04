@@ -61,29 +61,11 @@ export function displayGoodRecipe(valueInput, recipes) {
     }
 
     refreshGoodItems(tabResults);
-    console.log(tabIngredients);
-    console.log(tabMachines);
-    console.log(tabUstensils);
   }
-  // else if (valueInput === ""){
-  //   let articlesRecipes = document.querySelectorAll(".recipe-card article");
-  //   for (let i = 0; i < recipes.length; i++) {
-  //         tabResults.push(i);
-  //   }
-  //   for (let i = 0; i < articlesRecipes.length; i++) {
-  //     articlesRecipes[i].classList.remove("display-block");
-  //     articlesRecipes[i].classList.add("class", "display-none");
-  //   }
 
-  //   //Then displaying the searched ones
-  //   for (let i = 0; i < tabResults.length; i++) {
-  //     articlesRecipes[tabResults[i]].classList.replace("display-none","display-block");
-  //   }
-  // }
   else {
     for (let i = 0; i < recipes.length; i++) {
       tabResults.push(i);
-      //console.log(tabResults);
     }
     for (let i = 0; i < document.querySelectorAll(".recipe-card article").length; i++) {
       document.querySelectorAll(".recipe-card article")[i].classList.replace("display-none", "display-block");
