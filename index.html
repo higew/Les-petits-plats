@@ -24,7 +24,7 @@
                 <button type="button" id="btn_ingredient" class="btn btn-primary btn-sm dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                     Ingrédients
                 </button>
-                <input type="text" id="inpt_ingr" placeholder="Recherche un ingredient" style="display: none;" class="btn btn-primary btn-lg dropdown-toggle" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <input type="text" id="inpt_ingr" placeholder="Rechercher un ingredient" class="btn btn-primary btn-sm dropdown-toggle display-none" aria-haspopup="true" aria-expanded="false">
                 <div class="grp_ingredient display-none" id="ingredients-menu-items">
 
                 </div>
@@ -33,7 +33,7 @@
                 <button type="button" id="btn_appareil" class="btn btn-success btn-sm dropdown-toggle" aria-expanded="false">
                     Appareils
                 </button>
-                <input type="text" id="inpt_appr" placeholder="Recherche un appareil" style="display: none;"  class="btn btn-success btn-lg dropdown-toggle" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <input type="text" id="inpt_appr" placeholder="Rechercher un appareil" class="btn btn-success btn-sm dropdown-toggle display-none" aria-haspopup="true" aria-expanded="false">
                 <div class="grp_appareil display-none"  id="machines-menu-items">
 
                 </div>
@@ -42,7 +42,7 @@
                 <button type="button" id="btn_ustensil" class="btn btn-danger btn-sm dropdown-toggle" aria-expanded="false">
                     Ustensiles
                 </button>
-                <input type="text" placeholder="Recherche un Ustensile" id="inpt_ustensil" style="display: none;" class="btn btn-danger btn-lg dropdown-toggle" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <input type="text" placeholder="Rechercher un Ustensile" id="inpt_ustensil" class="btn btn-danger btn-sm dropdown-toggle display-none" aria-haspopup="true" aria-expanded="false">
                 <div class="grp_ustensil display-none" id="utensils-menu-items"> 
                     
                 </div>
@@ -50,6 +50,9 @@
         </div>
         <div id="galeries"> 
             <div class="recipe-card row justify-content-between"></div>
+        </div>
+        <div id="messageRecipeNotFound" class="display-none">
+            <p>Aucune recette ne correspond aux critères de recherche choisis...</p>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
