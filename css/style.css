@@ -298,8 +298,42 @@ article {
   display: none;
 }
 
-@media (min-width: 768px) {
+.col-md-4 {
+  max-width: 30%;
+  flex: 0 0 33.33%;
+}
+
+@media screen and (max-width: 992px) {
   .col-md-4 {
-    max-width: 30%;
+    max-width: 45%;
+    flex: 0 0 45%;
+  }
+
+  .grp_ingredient {
+    width: 340px;
+    gap: 45px;
+  }
+
+  .grp_appareil {
+    width: 340px;
+    gap: 45px;
+  }
+
+  .grp_ustensil {
+    width: 340px;
+    gap: 45px;
+  }
+}
+
+@media screen and (max-width: 768px) { 
+  .col-md-4 {
+    max-width: 91%;
+    flex: 0 0 91%;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 }
